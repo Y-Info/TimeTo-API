@@ -16,7 +16,7 @@ Deploy with heroku
 ```npm install```
 
 3. Launch the app
-```nodemon server```
+```npm run start:watch```
 
 ### Prerequisites
 
