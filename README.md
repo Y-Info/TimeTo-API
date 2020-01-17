@@ -6,7 +6,7 @@ School project aiming at the creation of a platform for event countdown
 
 Deploy with heroku
 
-```In progress```
+```https://its-time-to.herokuapp.com/```
 
 ## Getting Started 
 
