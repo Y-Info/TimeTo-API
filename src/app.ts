@@ -1,10 +1,10 @@
-require('dotenv').config();
+import env from 'dotenv';
+env.config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const eventRoutes = require('./routes/event');
-
+import {EventRouter} from './routes/event';
 
 
 mongoose.connect(process.env.DB_URI,
@@ -21,9 +21,10 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+
 app.use(bodyParser.json());
 
-app.use('/api/event', eventRoutes);
+app.use('/api/event', EventRouter);
 
 
 module.exports = app;

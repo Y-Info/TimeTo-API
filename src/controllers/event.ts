@@ -1,4 +1,4 @@
-const Event = require('../models/Event');
+import {Event} from '../models/Event';
 
 exports.createEvent = (req, res) => {
     const event = new Event({

@@ -9,7 +9,7 @@ router.get('/:id', eventCtrl.getOneEvent);
 router.delete('/:id',eventCtrl.deleteEvent);
 router.put('/:id', eventCtrl.updateEvent);
 
-module.exports = router;
+export const EventRouter = router;
 
 
 
