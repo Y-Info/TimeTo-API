@@ -8,6 +8,17 @@ package-lock.json
 # Environment
 .env
 .env.example
+=======
+# Package-lock
+package-lock.json
+
+# TypeScript
+build/
+
+# Environment
+.env
+.env.example
+
 # Configuration
 config/*
 !config/*.example.yml
@@ -17,3 +28,5 @@ config/*
 !.vscode/launch.json
 
 .idea/
+=======
+!.vscode/launch.json
