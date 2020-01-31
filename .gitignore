@@ -1,6 +1,14 @@
 # Node
 node_modules/
 
+# TypeScript
+build/
+
+package-lock.json
+# Environment
+.env
+.env.example
+=======
 # Package-lock
 package-lock.json
 
@@ -17,4 +25,8 @@ config/*
 
 # Visual Studio Code
 .vscode/*
+!.vscode/launch.json
+
+.idea/
+=======
 !.vscode/launch.json
