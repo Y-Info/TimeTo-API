@@ -1,10 +1,11 @@
 import {User} from '../models/User';
 
 exports.createUser= (req, res) => {
-  const event = new User({
-    ...req.body
+  const userObject = JSON.parse(req.body.user);
+  const user = new User({
+    ...userObject,
   });
-  event.save()
+  user.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
     .catch(error => res.status(400).json({ error }));
 };
@@ -42,3 +43,6 @@ exports.getAllUsers=  (req, res) => {
     .then(events => res.status(200).json(events))
     .catch(error => res.status(400).json({ error }));
 };
+exports.getUrlImage= (req, res) => {
+  console.log(`${req.protocol}://${req.get('host')}/images/${req.file.filename}`);
+}
