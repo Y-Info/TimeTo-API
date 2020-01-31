@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 import {EventRouter} from './routes/event';
+import {CategoryRouter} from './routes/category';
 
 
 mongoose.connect(process.env.DB_URI,
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/event', EventRouter);
+app.use('/api/category', CategoryRouter);
 
 
 module.exports = app;
