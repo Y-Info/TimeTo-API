@@ -1,0 +1,20 @@
+# Node
+node_modules/
+
+# Package-lock
+package-lock.json
+
+# TypeScript
+build/
+
+# Environment
+.env
+.env.example
+
+# Configuration
+config/*
+!config/*.example.yml
+
+# Visual Studio Code
+.vscode/*
+!.vscode/launch.json
