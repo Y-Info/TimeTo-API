@@ -1,4 +1,5 @@
 import {User} from '../models/User';
+import {url} from "inspector";
 
 exports.createUser= (req, res) => {
   const userObject = JSON.parse(req.body.user);
@@ -44,5 +45,11 @@ exports.getAllUsers=  (req, res) => {
     .catch(error => res.status(400).json({ error }));
 };
 exports.getUrlImage= (req, res) => {
-  console.log(`${req.protocol}://${req.get('host')}/images/${req.file.filename}`);
-}
+  let url = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+  if (url){
+    res.status(200).json(url)
+  }else{
+    res.status(500).json({'error' : 'image non trouver'});
+  }
+
+};
