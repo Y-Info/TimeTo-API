@@ -1,7 +1,7 @@
 import {Role} from '../models/Role';
 
 exports.createRole = (req, res) => {
-  const event = new Event({
+  const role = new Role({
     ...req.body
   });
   Role.save()
@@ -28,7 +28,7 @@ exports.getOneRole = (req, res)=>{
     .catch(error => res.status(404).json({error}));
 };
 
-exports.getAllRoles =  (req, res) => {
+exports.getAllRole =  (req, res) => {
   Role.find()
     .then(events => res.status(200).json(events))
     .catch(error => res.status(400).json({ error }));
