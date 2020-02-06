@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 import {EventRouter} from './routes/event';
 import {CategoryRouter} from './routes/category';
 import {UserRouter} from './routes/user';
+import {RoleRouter} from "./routes/role";
 
 mongoose.connect(process.env.DB_URI,
     { useNewUrlParser: true,
@@ -26,6 +27,8 @@ app.use(bodyParser.json());
 
 app.use('/api/event', EventRouter);
 app.use('/api/category', CategoryRouter);
+app.use('/api/user',UserRouter);
+app.use('/api/role',RoleRouter);
 app.use('/api/auth', UserRouter);
 
 module.exports = app;
