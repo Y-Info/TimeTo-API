@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ec8fa3d9-79ff-4b58-adbf-1680cc8dcf7e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/routes/role.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/role.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1X6ziQh1WKiBtKanHDWcBQD7Tpz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ec8fa3d9-79ff-4b58-adbf-1680cc8dcf7e" name="Default Changelist" comment="" />
+      <created>1580381458433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580381458433</updated>
+      <workItem from="1580381460999" duration="17000" />
+      <workItem from="1580381552415" duration="1276000" />
+      <workItem from="1580383019798" duration="4322000" />
+      <workItem from="1580393507625" duration="1957000" />
+      <workItem from="1580458427037" duration="12421000" />
+      <workItem from="1580891833719" duration="45000" />
+      <workItem from="1580891909811" duration="9000" />
+      <workItem from="1580893235526" duration="27000" />
+      <workItem from="1580977399615" duration="4016000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#TypeScript" timestamp="1580382247236">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#TypeScript/0.0.1440.900@0.0.1440.900" timestamp="1580382247236" />
+    <state x="441" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580981168520">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="441" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1580981168520" />
+    <state x="424" y="168" key="RollbackChangesDialog" timestamp="1580977554686">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="424" y="168" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1580977554686" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1580486880032">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1580486880032" />
+    <state x="378" y="207" width="683" height="486" key="find.popup" timestamp="1580392360018">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="378" y="207" width="683" height="486" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1580392360018" />
+    <state x="369" y="184" width="700" height="530" key="recent.locations.popup" timestamp="1580985439183">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="369" y="184" width="700" height="530" key="recent.locations.popup/0.0.1440.900@0.0.1440.900" timestamp="1580985439183" />
+  </component>
+</project>
