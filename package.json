@@ -1,6 +1,6 @@
 {
-    "name": "nock-api",
-    "version": "1.0.0",
+    "name": "time-to-api",
+    "version": "0.1.0",
     "description": "This README would normally document whatever steps are necessary to get your application up and running.",
     "main": "src/server.ts",
     "repository": {
@@ -16,6 +16,7 @@
         "express": "^4.16.3",
         "mongodb": "^3.0.5",
         "mongoose": "^5.8.1",
+        "multer": "^1.4.2",
         "nodemon": "^2.0.2",
         "request": "^2.87.0",
         "ts-node": "^8.6.2",

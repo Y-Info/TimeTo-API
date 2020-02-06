@@ -3,7 +3,6 @@ env.config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
 import {EventRouter} from './routes/event';
 import {CategoryRouter} from './routes/category';
 import {UserRouter} from './routes/user';
@@ -28,6 +27,5 @@ app.use(bodyParser.json());
 app.use('/api/event', EventRouter);
 app.use('/api/category', CategoryRouter);
 app.use('/api/user',UserRouter);
-
 
 module.exports = app;
