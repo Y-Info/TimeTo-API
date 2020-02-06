@@ -51,5 +51,4 @@ exports.getUrlImage= (req, res) => {
   }else{
     res.status(500).json({'error' : 'image non trouver'});
   }
-
 };
