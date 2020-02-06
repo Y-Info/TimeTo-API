@@ -5,7 +5,7 @@ const roleCtrl = require('../controllers/role');
 const auth = require('../middleware/auth');
 
 
-router.get('/', roleCtrl.getAllRoles);
+router.get('/', roleCtrl.getAllRole);
 router.post('/', auth, roleCtrl.updateRole);
 router.get('/:id', roleCtrl.getOneRole);
 router.delete('/:id',auth,roleCtrl.deleteRole);
