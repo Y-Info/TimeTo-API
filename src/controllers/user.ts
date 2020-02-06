@@ -1,5 +1,4 @@
 import {User} from '../models/User';
-import {url} from "inspector";
 
 exports.createUser= (req, res) => {
   const userObject = JSON.parse(req.body.user);
