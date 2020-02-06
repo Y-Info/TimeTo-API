@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const eventSchema = mongoose.Schema({
+const uniqueValidator = require('mongoose-unique-validator');
+
+const userSchema = mongoose.Schema({
   name:{
     type: String,
     required: true
@@ -8,6 +10,7 @@ const eventSchema = mongoose.Schema({
   email:{
     type: String,
     required: true,
+    unique: true,
   },
   password:{
     type: String,
@@ -15,14 +18,18 @@ const eventSchema = mongoose.Schema({
   },
   avatar:{
     type: String,
-    required: true,
+    required: false,
+    default: "test.png"
   },
   role:{
     type: String,
-    required: true,
+    required: false,
+    default: "member"
   },
 });
 
-export const User = mongoose.model('User', eventSchema);
+userSchema.plugin(uniqueValidator);
+
+export const User = mongoose.model('User', userSchema);
 
 
