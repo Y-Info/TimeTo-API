@@ -84,3 +84,11 @@ exports.getAllUsers=  (req, res) => {
     .then(events => res.status(200).json(events))
     .catch(error => res.status(400).json({ error }));
 };
+exports.getUrlImage= (req, res) => {
+  let url = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+  if (url){
+    res.status(200).json(url)
+  }else{
+    res.status(500).json({'error' : 'image non trouver'});
+  }
+};
