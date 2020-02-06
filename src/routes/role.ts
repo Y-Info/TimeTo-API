@@ -9,7 +9,7 @@ router.get('/:id',auth, roleCtrl.getOneRole);
 router.delete('/:id',auth,roleCtrl.deleteRole);
 router.put('/:id', auth, roleCtrl.updateRole);
 
-export const EventRouter = router;
+export const RoleRouter = router;
 
 
 
