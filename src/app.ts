@@ -26,7 +26,6 @@ app.use(bodyParser.json());
 
 app.use('/api/event', EventRouter);
 app.use('/api/category', CategoryRouter);
-//app.use('/api/user',UserRouter);
 app.use('/api/auth', UserRouter);
 
 module.exports = app;
