@@ -24,12 +24,12 @@ exports.updateRole = (req,res) => {
 
 exports.getOneRole = (req, res)=>{
   Role.findOne({_id: req.params.id})
-    .then(event => res.status(200).json(event))
+    .then(role => res.status(200).json(role))
     .catch(error => res.status(404).json({error}));
 };
 
 exports.getAllRole =  (req, res) => {
   Role.find()
-    .then(events => res.status(200).json(events))
+    .then(roles => res.status(200).json(roles))
     .catch(error => res.status(400).json({ error }));
 };
