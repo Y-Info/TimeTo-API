@@ -4,7 +4,7 @@ exports.createRole = (req, res) => {
   const role = new Role({
     ...req.body
   });
-  Role.save()
+  role.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
     .catch(error => res.status(400).json({ error }));
 };
