@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 
 
 router.get('/', roleCtrl.getAllRole);
-router.post('/', auth, roleCtrl.updateRole);
+router.post('/', auth, roleCtrl.createRole);
 router.get('/:id', roleCtrl.getOneRole);
 router.delete('/:id',auth,roleCtrl.deleteRole);
 router.put('/:id', auth, roleCtrl.updateRole);
