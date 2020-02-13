@@ -20,3 +20,5 @@ config/*
 !.vscode/launch.json
 
 .idea/
+
+/src/public
