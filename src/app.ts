@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use('/images', express.static('images'));
 
 app.use('/api/event', EventRouter);
 app.use('/api/category', CategoryRouter);
