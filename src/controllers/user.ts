@@ -1,5 +1,4 @@
 import {User} from '../models/User';
-import {log} from "util";
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -15,7 +14,7 @@ exports.signup = (req, res, next) => {
       .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
       .catch(error => res.status(400).json({ messageError:error.message}));
     })
-    .catch(error => res.status(500).json({ error }));
+    .catch(error => res.status(500).json(error.message ));
 }
 
 exports.login = (req, res, next) =>{
@@ -38,9 +37,9 @@ exports.login = (req, res, next) =>{
             )
           });
         })
-        .catch(error => res.status(500).json({ error }))
+        .catch(error => res.status(500).json(error.message))
     })
-    .catch(error => res.status(500).json({ error }));
+    .catch(error => res.status(500).json(error.message));
 }
 
 exports.createUser= (req, res) => {
@@ -49,7 +48,7 @@ exports.createUser= (req, res) => {
   });
   user.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-    .catch(error => res.status(400).json(error.message('test')));
+    .catch(error => res.status(400).json(error.message));
 };
 
 exports.signInUser= (req, res) => {
@@ -58,32 +57,32 @@ exports.signInUser= (req, res) => {
   });
   user.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json(error.message ));
 };
 
 exports.deleteUser =  (req, res) => {
   User.deleteOne({_id: req.params.id })
     .then(() => res.status(200).json({ message: 'Objet supprime !'}))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json(error.message ));
 };
 
 exports.updateUser = (req,res) => {
   User.updateOne({_id: req.params.id },
     { ...req.body, _id: req.params.id})
     .then(() => res.status(200).json({message: 'Objet modifie !'}))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json(error.message ));
 };
 
 exports.getOneUser = (req, res)=>{
   User.findOne({_id: req.params.id})
     .then(event => res.status(200).json(event))
-    .catch(error => res.status(404).json({error}));
+    .catch(error => res.status(404).json(error.message));
 };
 
 exports.getAllUsers=  (req, res) => {
   User.find()
     .then(events => res.status(200).json(events))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json(error.message ));
 };
 exports.getUrlImage= (req, res) => {
   let url = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
