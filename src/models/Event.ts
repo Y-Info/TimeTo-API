@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+import {Schema} from 'mongoose';
 
 const eventSchema = mongoose.Schema({
     title:{
@@ -8,9 +9,12 @@ const eventSchema = mongoose.Schema({
     type:{
         type: String,
         required: true,
+        default: "Standard",
+        enum : ["Standard", "Official", "Approved"]
     },
     category:{
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
         required: true,
     },
     creationDate:{
