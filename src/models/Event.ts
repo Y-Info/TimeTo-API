@@ -9,6 +9,8 @@ const eventSchema = mongoose.Schema({
     type:{
         type: String,
         required: true,
+        default: "Standard",
+        enum : ["Standard", "Official", "Approved"]
     },
     category:{
         type: Schema.Types.ObjectId,
