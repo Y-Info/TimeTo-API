@@ -1,4 +1,5 @@
 import {User} from '../models/User';
+import {log} from "util";
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -12,7 +13,7 @@ exports.signup = (req, res, next) => {
       });
       user.save()
       .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
-      .catch(error => res.status(400).json({ error }));
+      .catch(error => res.status(400).json({ messageError:error.message}));
     })
     .catch(error => res.status(500).json({ error }));
 }
@@ -48,7 +49,7 @@ exports.createUser= (req, res) => {
   });
   user.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json(error.message('test')));
 };
 
 exports.signInUser= (req, res) => {

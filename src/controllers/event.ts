@@ -6,7 +6,7 @@ exports.createEvent = (req, res) => {
     });
     event.save()
         .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-        .catch(error => res.status(400).json({ error }));
+        .catch(error => res.status(400).json({ messageError:error.message}));
 };
 
 exports.deleteEvent =  (req, res) => {

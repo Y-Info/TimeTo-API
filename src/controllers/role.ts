@@ -6,7 +6,7 @@ exports.createRole = (req, res) => {
   });
   role.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json({ messageError:error.message}));
 };
 
 exports.deleteRole =  (req, res) => {
