@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+import {Schema} from 'mongoose';
 
 const uniqueValidator = require('mongoose-unique-validator');
 
@@ -22,10 +23,15 @@ const userSchema = mongoose.Schema({
     default: "test.png"
   },
   role:{
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Role',
     required: false,
-    default: "member"
+    //default: "member"
   },
+  events: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Event'
+  }]
 });
 
 userSchema.plugin(uniqueValidator);

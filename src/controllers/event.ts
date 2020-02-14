@@ -28,6 +28,20 @@ exports.getOneEvent = (req, res)=>{
         .catch(error => res.status(404).json({error}));
 };
 
+exports.getOneEventWithCat = (req, res)=>{
+    Event.findOne({_id: req.params.id})
+        .populate('category').exec((err, posts) => {})
+        .then(event => res.status(200).json(event))
+        .catch(error => res.status(404).json({error}));
+};
+
+exports.getOneEventWithUser = (req, res)=>{
+    Event.findOne({_id: req.params.id})
+        .populate('postedBy').exec((err, posts) => {})
+        .then(event => res.status(200).json(event))
+        .catch(error => res.status(404).json({error}));
+};
+
 exports.getAllEvents =  (req, res) => {
     Event.find()
         .then(events => res.status(200).json(events))

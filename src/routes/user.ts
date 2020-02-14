@@ -9,6 +9,8 @@ const auth = require('../middleware/auth');
 router.get('/', auth, userCtrl.getAllUsers);
 router.post('/', auth, userCtrl.createUser);
 router.get('/:id', auth, userCtrl.getOneUser);
+router.get('/populate/role/:id', auth, userCtrl.getOneUserWithRole);
+router.get('/populate/events/:id', auth, userCtrl.getOneUserWithEvents);
 router.delete('/:id', auth, userCtrl.deleteUser);
 router.put('/:id',  auth, userCtrl .updateUser);
 router.post('/signup', userCtrl.signup);

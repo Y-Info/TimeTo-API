@@ -81,6 +81,20 @@ exports.getOneUser = (req, res)=>{
     .catch(error => res.status(404).json({error}));
 };
 
+exports.getOneUserWithRole = (req, res)=>{
+  User.findOne({_id: req.params.id})
+    .populate('role').exec((err, posts) => {})
+    .then(event => res.status(200).json(event))
+    .catch(error => res.status(404).json({error}));
+};
+
+exports.getOneUserWithEvents = (req, res)=>{
+  User.findOne({_id: req.params.id})
+    .populate('events').exec((err, posts) => {})
+    .then(event => res.status(200).json(event))
+    .catch(error => res.status(404).json({error}));
+};
+
 exports.getAllUsers=  (req, res) => {
   User.find()
     .then(events => res.status(200).json(events))
