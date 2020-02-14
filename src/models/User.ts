@@ -23,14 +23,15 @@ const userSchema = mongoose.Schema({
     default: "test.png"
   },
   role:{
-    type: Schema.Types.ObjectId,
-    ref: 'Role',
-    required: false,
-    //default: "member"
+    type: String,
+    required: true,
+    default: "member",
+    enum: ['member','admin','approved']
   },
-  events: [{
+  postedEvent: [{
     type: Schema.Types.ObjectId,
-    ref: 'Event'
+    ref: 'Event',
+    require: false
   }]
 });
 

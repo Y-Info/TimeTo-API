@@ -30,14 +30,20 @@ exports.getOneEvent = (req, res)=>{
 
 exports.getOneEventWithCat = (req, res)=>{
     Event.findOne({_id: req.params.id})
-        .populate('category').exec((err, posts) => {})
+        .populate({
+            path: 'category',
+            select: ['name']
+        }).exec()
         .then(event => res.status(200).json(event))
         .catch(error => res.status(404).json({error}));
 };
 
 exports.getOneEventWithUser = (req, res)=>{
     Event.findOne({_id: req.params.id})
-        .populate('postedBy').exec((err, posts) => {})
+        .populate({
+            path:'postedBy',
+            select: ['name']
+        }).exec()
         .then(event => res.status(200).json(event))
         .catch(error => res.status(404).json({error}));
 };

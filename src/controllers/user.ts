@@ -81,16 +81,12 @@ exports.getOneUser = (req, res)=>{
     .catch(error => res.status(404).json(error.message));
 };
 
-exports.getOneUserWithRole = (req, res)=>{
-  User.findOne({_id: req.params.id})
-    .populate('role').exec((err, posts) => {})
-    .then(event => res.status(200).json(event))
-    .catch(error => res.status(404).json({error}));
-};
-
 exports.getOneUserWithEvents = (req, res)=>{
   User.findOne({_id: req.params.id})
-    .populate('events').exec((err, posts) => {})
+    .populate({
+        path:'postedEvent',
+        select: ['title']
+    }).exec()
     .then(event => res.status(200).json(event))
     .catch(error => res.status(404).json({error}));
 };
