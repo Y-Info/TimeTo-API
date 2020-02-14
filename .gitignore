@@ -18,5 +18,8 @@ config/*
 # Visual Studio Code
 .vscode/*
 !.vscode/launch.json
+/src/public/images
 
 .idea/
+
+./src/public/images
