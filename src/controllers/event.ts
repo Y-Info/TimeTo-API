@@ -1,12 +1,20 @@
 import {Event} from '../models/Event';
+import {User} from '../models/User';
 
-exports.createEvent = (req, res) => {
+exports.createEvent = (req, res, next) => {
     const event = new Event({
         ...req.body
     });
     event.save()
-        .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-        .catch(error => res.status(400).json(error.message));
+        .then(
+            User.updateOne({_id: req.body.postedBy},
+                { $push: { postedEvent: event }})
+                .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+                .catch(error => res.status(400).json(error.message))
+        )
+        .catch(error => res.status(400).json(error.message ));
+
+    
 };
 
 exports.deleteEvent =  (req, res) => {
