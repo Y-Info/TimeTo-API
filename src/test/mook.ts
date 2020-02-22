@@ -1,6 +1,6 @@
-const user = {"email":"admin@mail.com", "password":"password" };
+exports.user = {"email":"admin@mail.com", "password":"password" };
 
-const event = {
+exports.event = {
     _id:"5e511440e58e3d6bab689a35",
     title : "Event cree depuis les test",
     description: "Describ test",
@@ -9,5 +9,8 @@ const event = {
     postedBy : "5e3d33854a7c50001713c670"
 };
 
-exports.event = event;
-exports.user = user;
+exports.eventEdit = {
+    title : "Event modifie depuis les test",
+    description: "Describ test",
+    type: "Official"
+};

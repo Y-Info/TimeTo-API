@@ -2,6 +2,7 @@ const app = require('../app');
 const request = require('supertest');
 const mook = require('./mook');
 const validFunc = require('./validationFunction');
+
 let token;
 
 describe('General', function() {
@@ -41,7 +42,7 @@ describe('General', function() {
             it('GET/R method for /api/event', function(done) {
                 request(app)
                     .get('/api/event')
-                    .expect(validFunc.validEventStruct)
+                    .expect(validFunc.validEventStructTable)
                     .expect(200, done);
             });
 
@@ -50,22 +51,30 @@ describe('General', function() {
                     .post('/api/event')
                     .send(mook.event)
                     .set('Authorization', 'Bearer ' + token)
+                    .expect(validFunc.validCreateMessage)
                     .expect(201, done);
             });
 
+            it('GET/R method for /api/event/:event_id (valid the creation)', function(done) {
+                request(app)
+                    .get('/api/event/' + mook.event._id)
+                    .expect(validFunc.validEventPropertyPost)
+                    .expect(200, done);
+            });
+
             it('PUT/U method for /api/event/:event_id', function(done){
-                const eventEdit = {"title" : "Objet modifie dans les tests"};
                 request(app)
                     .put('/api/event/' + mook.event._id)
                     .set('Authorization', 'Bearer ' + token)
-                    .send(eventEdit)
+                    .send(mook.eventEdit)
                     .expect(validFunc.validUpdateMessage)
                     .expect(200, done);
             });
 
-            it('GET/R after modification for /api/event/:event_id', function(done) {
+            it('GET/R method for /api/event/:event_id (valid the modification)', function(done) {
                 request(app)
                     .get('/api/event/' + mook.event._id)
+                    .expect(validFunc.validEventPropertyUpdate)
                     .expect(200, done);
             });
 
@@ -75,7 +84,13 @@ describe('General', function() {
                     .set('Authorization', 'Bearer ' + token)
                     .expect(validFunc.validDeleteMessage)
                     .expect(200, done);
+            });
 
+            it('GET/R method for /api/event/:event_id (valid the deletion)', function(done) {
+                request(app)
+                    .get('/api/event/' + mook.event._id)
+                    .expect(validFunc.validEventPropertyDelete)
+                    .expect(200, done);
             });
         });
     });
