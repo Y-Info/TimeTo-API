@@ -1,5 +1,5 @@
 const expect  = require('chai').expect;
-const mook = require('./mook');
+const mook = require('./mock');
 
 const createMessage = 'Objet enregistré !';
 const deleteMessage = 'Objet supprime !';

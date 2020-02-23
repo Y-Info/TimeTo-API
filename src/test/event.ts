@@ -1,6 +1,6 @@
 const app = require('../app');
 const request = require('supertest');
-const mook = require('./mook');
+const mook = require('./mock');
 const validFunc = require('./validationFunction');
 
 let token;
