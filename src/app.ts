@@ -10,8 +10,9 @@ import {RoleRouter} from "./routes/role";
 
 mongoose.connect(process.env.DB_URI,
     { useNewUrlParser: true,
+        useCreateIndex: true,
         useUnifiedTopology: true })
-    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .then()
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
