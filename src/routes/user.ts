@@ -18,12 +18,3 @@ router.post('/image', auth, multer, userCtrl.getUrlImage);
 
 
 export const UserRouter = router;
-
-
-
-
-
-
-
-
-
