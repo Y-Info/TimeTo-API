@@ -31,5 +31,3 @@ const userSchema = mongoose.Schema({
 userSchema.plugin(uniqueValidator);
 
 export const User = mongoose.model('User', userSchema);
-
-

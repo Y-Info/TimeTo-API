@@ -12,12 +12,3 @@ router.delete('/:id',auth,roleCtrl.deleteRole);
 router.put('/:id', auth, roleCtrl.updateRole);
 
 export const RoleRouter = router;
-
-
-
-
-
-
-
-
-
