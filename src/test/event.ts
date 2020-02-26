@@ -1,4 +1,4 @@
-const app = require('../src/app');
+const app = require('../app');
 const request = require('supertest');
 const mook = require('./mock');
 const validFunc = require('./validationFunction');
