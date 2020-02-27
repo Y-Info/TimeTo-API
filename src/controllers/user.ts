@@ -64,7 +64,7 @@ exports.signInUser= (req, res) => {
 };
 
 exports.deleteUser =  (req, res) => {
-  var eventArray = []  
+  var eventArray = []
   User.findById(req.params.id, (err, user) => {
     eventArray = user.postedEvent;
   })
