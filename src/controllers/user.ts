@@ -64,17 +64,19 @@ exports.signInUser= (req, res) => {
 };
 
 exports.deleteUser =  (req, res) => {
-  var eventArray = []  
-  User.findById(req.params.id, (err, user) => {
-    eventArray = user.postedEvent;
-  })
-  User.deleteOne({_id: req.params.id })
+  let eventArray = []  
+  User.findById({_id: req.params.id})
+  .then(() => {
+    eventArray = User.postedEvent;
+    User.deleteOne({_id: req.params.id })
     .then(() => {
       Event.updateMany({ _id: { "$in": eventArray } }, {"$set":{"postedBy": null}})
           .then(() => res.status(201).json({ message: 'User supprimé !'}))
           .catch(error => res.status(400).json(error.message))
     })
     .catch(error => res.status(400).json(error.message ));
+  })
+  .catch(error => res.status(400).json(error.message))
 };
 
 exports.updateUser = (req,res) => {
