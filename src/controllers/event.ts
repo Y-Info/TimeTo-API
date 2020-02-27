@@ -9,7 +9,7 @@ exports.createEvent = (req, res, next) => {
         .then(
             User.updateOne({_id: req.body.postedBy},
                 { $push: { postedEvent: event }})
-                .then(() => res.status(201).json({ message: 'Evenement enregistré !'}))
+                .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
                 .catch(error => res.status(400).json(error.message))
         )
         .catch(error => res.status(400).json(error.message ));
@@ -20,7 +20,7 @@ exports.deleteEvent =  (req, res) => {
         .then(
             User.updateOne({_id: req.body.postedBy},
                 { postedBy : null})
-                .then(() => res.status(201).json({ message: 'Evenement supprimé !'}))
+                .then(() => res.status(200).json({ message: 'Objet supprime !'}))
                 .catch(error => res.status(400).json(error.message))
         )
         .catch(error => res.status(400).json(error.message ));

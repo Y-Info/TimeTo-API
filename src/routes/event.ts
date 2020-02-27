@@ -13,12 +13,3 @@ router.delete('/:id', auth, eventCtrl.deleteEvent);
 router.put('/:id', auth, eventCtrl.updateEvent);
 
 export const EventRouter = router;
-
-
-
-
-
-
-
-
-
