@@ -19,7 +19,7 @@ exports.deleteEvent =  (req, res) => {
     Event.deleteOne({_id: req.params.id })
         .then(
             User.updateOne({_id: req.body.postedBy},
-                { $pull: { postedEvent: { _id : Event._id }}})
+                { postedBy : null})
                 .then(() => res.status(201).json({ message: 'Evenement supprimé !'}))
                 .catch(error => res.status(400).json(error.message))
         )

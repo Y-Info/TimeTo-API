@@ -1,4 +1,5 @@
 import {User} from '../models/User';
+import {Event} from '../models/Event';
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -63,8 +64,16 @@ exports.signInUser= (req, res) => {
 };
 
 exports.deleteUser =  (req, res) => {
+  var eventArray = []  
+  User.findById(req.params.id, (err, user) => {
+    eventArray = user.postedEvent;
+  })
   User.deleteOne({_id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Objet supprime !'}))
+    .then(() => {
+      Event.updateMany({ _id: { "$in": eventArray } }, {"$set":{"postedBy": null}})
+          .then(() => res.status(201).json({ message: 'User supprimé !'}))
+          .catch(error => res.status(400).json(error.message))
+    })
     .catch(error => res.status(400).json(error.message ));
 };
 
