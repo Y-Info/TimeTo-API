@@ -33,7 +33,7 @@ exports.login = (req, res, next) =>{
             name: user.name,
             avatar: user.avatar,
             token: jwt.sign(
-              { userId: user._id},
+              { userId: user._id,userRole: user.role},
               process.env.RANDOM_TOKEN_SECRET,
               { expiresIn: '24h'}
             )
@@ -46,7 +46,8 @@ exports.login = (req, res, next) =>{
 
 exports.createUser= (req, res) => {
   const user = new User({
-    ...req.body
+    ...req.body,
+    role: 'member'
   });
   user.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
@@ -69,9 +70,20 @@ exports.deleteUser =  (req, res) => {
 };
 
 exports.updateUser = (req,res) => {
-  User.updateOne({_id: req.params.id },
-    { ...req.body, _id: req.params.id})
-    .then(() => res.status(200).json({message: 'Objet modifie !'}))
+  User.findOne({_id: req.params.id})
+    .then( (result) => {
+     if (result.role !== 'admin'){
+       User.updateOne({_id: req.params.id },
+         {...req.body, _id: req.params.id, role: result.role})
+         .then(() => res.status(200).json({message: 'Objet modifie !'}))
+         .catch(error => res.status(400).json(error.message ));
+     } else {
+       User.updateOne({_id: req.params.id },
+         { ...req.body, _id: req.params.id})
+         .then(() => res.status(200).json({message: 'Objet modifie !'}))
+         .catch(error => res.status(400).json(error.message ));
+     }
+    })
     .catch(error => res.status(400).json(error.message ));
 };
 
