@@ -70,9 +70,13 @@ exports.deleteUser =  (req, res) => {
 };
 
 exports.updateUser = (req,res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
+  const userRole = decodedToken.userRole;
+
   User.findOne({_id: req.params.id})
     .then( (result) => {
-     if (result.role !== 'admin'){
+     if (userRole !== 'admin'){
        User.updateOne({_id: req.params.id },
          {...req.body, _id: req.params.id, role: result.role})
          .then(() => res.status(200).json({message: 'Objet modifie !'}))
