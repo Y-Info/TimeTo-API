@@ -1,4 +1,5 @@
 import {User} from '../models/User';
+import {Event} from '../models/Event';
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -64,9 +65,19 @@ exports.signInUser= (req, res) => {
 };
 
 exports.deleteUser =  (req, res) => {
-  User.deleteOne({_id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Objet supprime !'}))
+  let eventArray = []  
+  User.findById({_id: req.params.id})
+  .then(() => {
+    eventArray = User.postedEvent;
+    User.deleteOne({_id: req.params.id })
+    .then(() => {
+      Event.updateMany({ _id: { "$in": eventArray } }, {"$set":{"postedBy": null}})
+          .then(() => res.status(201).json({ message: 'User supprimé !'}))
+          .catch(error => res.status(400).json(error.message))
+    })
     .catch(error => res.status(400).json(error.message ));
+  })
+  .catch(error => res.status(400).json(error.message))
 };
 
 exports.updateUser = (req,res) => {
@@ -95,6 +106,16 @@ exports.getOneUser = (req, res)=>{
   User.findOne({_id: req.params.id})
     .then(event => res.status(200).json(event))
     .catch(error => res.status(404).json(error.message));
+};
+
+exports.getOneUserWithEvents = (req, res)=>{
+  User.findOne({_id: req.params.id})
+    .populate({
+        path:'postedEvent',
+        select: ['title']
+    }).exec()
+    .then(event => res.status(200).json(event))
+    .catch(error => res.status(404).json({error}));
 };
 
 exports.getAllUsers=  (req, res) => {

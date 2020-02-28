@@ -22,6 +22,11 @@ const eventSchema = mongoose.Schema({
         required: true,
         default: Date.now
     },
+    postedBy:{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
+    },
     // Type : Post
     description:{
         type: String,
