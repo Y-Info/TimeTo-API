@@ -1,0 +1,25 @@
+# Node
+node_modules/
+
+# TypeScript
+build/
+
+package-lock.json
+# Environment
+.env
+=======
+# Package-lock
+package-lock.json
+
+# Configuration
+config/*
+!config/*.example.yml
+
+# Visual Studio Code
+.vscode/*
+!.vscode/launch.json
+/src/public/images
+
+.idea/
+
+./src/public/images
